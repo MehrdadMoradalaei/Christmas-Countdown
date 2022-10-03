@@ -1,0 +1,71 @@
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="firstTitle">Are you Ready For Christmas?</h1>
+    <div class="Tbox">
+        <div  class="box">
+            <div class="Title">Months</div>
+            <h1 id="demo1"></h1>
+        </div>
+        <div  class="box">
+            <div class="Title">Days</div>
+            <h1 id="demo2"></h1>
+        </div>
+        <div  class="box">
+            <div class="Title">Hours</div>
+            <h1 id="demo3"></h1>
+        </div>
+        <div  class="box">
+            <div class="Title">Minutes</div>
+            <h1 id="demo4"></h1>
+        </div>
+        <div  class="box">
+            <div class="Title">Seconds</div>
+            <h1 id="demo5"></h1>
+        </div>
+
+    <script>
+        function calc(){
+     let today = new Date();
+     let deadline = 'January 1 ' + (today.getFullYear() + 1) + " 00:00:00";
+     let se = (Date.parse(deadline) - Date.parse(new Date())) / 1000;
+
+     let year_s=3600 * 24 * 30 * 12;
+     let mon_s=3600 * 24 * 30;
+     let day_s=3600*24;
+     let hou_s=3600;
+     let min_s=60;
+     let year= Math.trunc(se / year_s);
+     se= se % year_s;
+     let mon=Math.trunc(se / mon_s);
+     se= se % mon_s;
+     let day=Math.trunc(se / day_s);
+     se= se % day_s;
+     let hou=Math.trunc(se / hou_s);
+     se = se % hou_s;
+     let min=Math.trunc(se / min_s);
+     se= se % min_s;
+    let resultYear = `${year}`;
+    let resultMon = `${mon}`;
+    let resultDay = `${day}`;
+    let resultHou = `${hou}`;
+    let resultMin = `${min}`;
+    let resultSe = `${se}`;
+    document.getElementById("demo1").innerHTML= resultMon;
+    document.getElementById("demo2").innerHTML= resultDay;
+    document.getElementById("demo3").innerHTML= resultHou;
+    document.getElementById("demo4").innerHTML= resultMin;
+    document.getElementById("demo5").innerHTML= resultSe;
+    }
+    setInterval(calc, 1000);
+    </script>
+    </div>
+</body>
+</html>
